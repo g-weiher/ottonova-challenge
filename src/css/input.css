@@ -1,0 +1,57 @@
+.input {
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--grey);
+}
+input[type=radio],
+input[type=checkbox] {
+    display: none;
+}
+.checkbox-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--grey);
+    transition: 0.1s ease-in;
+    cursor: pointer;
+    
+}
+.checkbox-content:hover, .input:hover {
+    border-color:var(--primary);
+}
+.checkbox-icon {
+    width: 20px;
+    height: 20px;
+    border:solid var(--grey) 1px;
+    margin-left: 1rem;
+    transition: 0.1s ease-in;
+}
+input[type=checkbox]:checked + span  {
+    border-color: var(--primary);
+    border-width: 2px;
+}
+input[type=checkbox]:checked + span  .checkbox-icon  {
+    border:solid var(--primary) 5px;
+}
+.contact-form {
+    max-width: 800px;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "first-name last-name" "e-mail e-mail" "permission permission";
+    grid-gap: 0.5rem;
+}
+.first-name {
+    grid-area: first-name;
+}
+.last-name {
+    grid-area: last-name;
+}
+.e-mail {
+    grid-area: e-mail;
+}
+.permission {
+    grid-area: permission;
+}

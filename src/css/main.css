@@ -1,12 +1,17 @@
 @import "./topbar.css";
+@import "./input.css";
 
 :root {
     --background: white;
     --primary: #0077FF;
     --secondary: #00104B;
+    --grey: #A3A8BA;
 }
 
 * {
     box-sizing: border-box
+}
+input:focus {
+    outline:none;
 }
 
