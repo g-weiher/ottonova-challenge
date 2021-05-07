@@ -35,8 +35,9 @@ const populateDates = () => {
     dateSelect.append(options);
 };
 const populateTimes = (index) => {
+    // toggle opacity class for fade-in effect
     timeContainer.classList.toggle("loading");
-    var options = new DocumentFragment();
+    const options = new DocumentFragment();
     appointments[index].appointments.forEach((appointmentTime, index) => {
         const radioButton = createRadioButton(
             "time",
@@ -44,12 +45,21 @@ const populateTimes = (index) => {
             appointmentTime.label,
             index === 0 ? true : false
         );
+        timeContainer.innerHTML = "";
         options.append(radioButton);
     });
-    timeContainer.innerHTML = "";
     timeContainer.append(options);
-    //use timeout to give animation a chance to render
-    setTimeout(() => timeContainer.classList.toggle("loading"), 20);
+
+    //make sure previous changes were rendered before toggling animation class
+    const tryToggleLoading = () => {
+        if (window.getComputedStyle(timeContainer).opacity === "1") {
+            window.requestAnimationFrame(tryToggleLoading);
+        } else {
+            timeContainer.classList.toggle("loading");
+        }
+    };
+    window.requestAnimationFrame(tryToggleLoading);
+    
 };
 
 dateSelect.addEventListener("change", (ev) => populateTimes(ev.target.value));
