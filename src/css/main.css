@@ -1,5 +1,6 @@
 @import "./topbar.css";
 @import "./input.css";
+@import "./select.css";
 
 :root {
     --background: white;
