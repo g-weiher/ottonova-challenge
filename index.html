@@ -29,30 +29,31 @@
     <main>
         <div class="container">
             <h1>Book your personal appointment right now.</h1>
+            <p>Just select an appointment to book your personal consultation.</p>
             <form id="contact-form">
-                <fieldset form="contact-form" name="contact-info">
-                    <legend>Contact Information</legend>
-                    <label for="fname">First name</label>
-                    <input type="text" id="fname" name="fname" /><br /><br />
-                    <label for="lname">Last name</label>
-                    <input type="text" id="lname" name="lname" /><br /><br />
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" /><br /><br />
-                    <label for="permission">
-                        give permission to use data
-                        <input type="checkbox" id="permission" name="permission"/> 
-                    </label>
-                    
-                </fieldset>
-                <fieldset form="contact-form" name="appointment-time">
-                    <legend>Appointment</legend>
-                    <select name="date" id="date">
-                        <option value="somedate">choose</option>
-                    </select><br /><br />
-                    <div id="time">
-
+                <div class="appointment-selection">
+                    <h4>Day</h4>
+                    <div id="date-selection" class="selection">
                     </div>
-                </fieldset>
+                    <h4>Time</h4>
+                    <div id="time-selection" class="selection">
+                    </div>
+                </div>
+                <h3>Contact Information</h3>
+                <div class="contact-form">
+                    <input class="input first-name" placeholder="first name" type="text" id="fname" name="fname" />
+                    <input class="input last-name" placeholder="last name" type="text" id="lname" name="lname" />
+                    <input class="input e-mail" placeholder="Email" type="email" id="email" name="email" />
+                    <label for="permission" class="button permission">
+                        <input type="checkbox" id="permission" name="permission" />
+                        <span class="checkbox-content">
+                            <span class="checkbox-text">give permission to use data</span>
+                            <div class="checkbox-icon"></div>
+                        </span>
+                    </label>
+
+                </div>
+
                 <input type="submit" value="Submit" />
             </form>
         </div>
