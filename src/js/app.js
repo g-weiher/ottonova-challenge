@@ -1,7 +1,9 @@
 import appointments from "./appointments.js";
 
+const form = document.getElementById("contact-form"); 
 const dateSelect = document.getElementById("date-selection");
 const timeContainer = document.getElementById("time-selection");
+const loadingOverlay = document.getElementById("loading-overlay");
 
 const createRadioButton = (name, value, text, checked = false) => {
     // create wrapping label
@@ -62,6 +64,20 @@ const populateTimes = (index, skipAnimation = false) => {
         window.requestAnimationFrame(tryToggleLoading);
     }
 };
+
+const onSubmit = () => {
+    loadingOverlay.classList.remove("hidden");
+    setTimeout(() => {
+        window.location.href = 'thankyou.html';
+    },1000)
+
+    
+}
+form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    onSubmit();
+})
+
 
 dateSelect.addEventListener("change", (ev) => populateTimes(ev.target.value));
 populateDates();
