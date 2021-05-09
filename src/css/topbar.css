@@ -5,11 +5,12 @@ header {
 .topbar-wrapper {
     position: fixed;
     width: 100%;
+    background-color: var(--background);
+    z-index: 10;
 }
 .topbar {
     padding-top: 0.5rem;
     height: var(--topbar-height);
-    background-color: var(--background);
     display: flex;
     align-items: center;
     justify-content: space-between;

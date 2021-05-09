@@ -1,7 +1,9 @@
 import appointments from "./appointments.js";
 
+const form = document.getElementById("contact-form"); 
 const dateSelect = document.getElementById("date-selection");
 const timeContainer = document.getElementById("time-selection");
+const loadingOverlay = document.getElementById("loading-overlay");
 
 const createRadioButton = (name, value, text, checked = false) => {
     // create wrapping label
@@ -34,9 +36,9 @@ const populateDates = () => {
     });
     dateSelect.append(options);
 };
-const populateTimes = (index) => {
+const populateTimes = (index, skipAnimation = false) => {
     // toggle opacity class for fade-in effect
-    timeContainer.classList.toggle("loading");
+    if (!skipAnimation) timeContainer.classList.toggle("loading");
     const options = new DocumentFragment();
     appointments[index].appointments.forEach((appointmentTime, index) => {
         const radioButton = createRadioButton(
@@ -50,18 +52,33 @@ const populateTimes = (index) => {
     });
     timeContainer.append(options);
 
-    //make sure previous changes were rendered before toggling animation class
-    const tryToggleLoading = () => {
-        if (window.getComputedStyle(timeContainer).opacity === "1") {
-            window.requestAnimationFrame(tryToggleLoading);
-        } else {
-            timeContainer.classList.toggle("loading");
-        }
-    };
-    window.requestAnimationFrame(tryToggleLoading);
-    
+    if (!skipAnimation) {
+        //make sure previous changes were rendered before toggling animation class
+        const tryToggleLoading = () => {
+            if (window.getComputedStyle(timeContainer).opacity === "1") {
+                window.requestAnimationFrame(tryToggleLoading);
+            } else {
+                timeContainer.classList.toggle("loading");
+            }
+        };
+        window.requestAnimationFrame(tryToggleLoading);
+    }
 };
+
+const onSubmit = () => {
+    loadingOverlay.classList.remove("hidden");
+    setTimeout(() => {
+        window.location.href = 'thankyou.html';
+    },1000)
+
+    
+}
+form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    onSubmit();
+})
+
 
 dateSelect.addEventListener("change", (ev) => populateTimes(ev.target.value));
 populateDates();
-populateTimes(0);
+populateTimes(0,true);

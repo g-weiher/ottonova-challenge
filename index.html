@@ -30,7 +30,10 @@
         <div class="container">
             <h1>Book your personal appointment right now.</h1>
             <p>Just select an appointment to book your personal consultation.</p>
-            <form id="contact-form">
+            <form id="contact-form" class="form">
+                <div id="loading-overlay" class="loading-overlay hidden">
+                    <h3>LOADING</h3>
+                </div>
                 <div class="appointment-selection">
                     <h4>Day</h4>
                     <div id="date-selection" class="selection">
@@ -56,6 +59,9 @@
 
                 <input type="submit" value="Submit" />
             </form>
+            <div id="submit-overlay" class="submit-overlay hidden">
+                <h3> THANKS FOR BOOKING</h3>
+            </div>
         </div>
     </main>
     <footer></footer>

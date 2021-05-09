@@ -1,6 +1,8 @@
 @import "./topbar.css";
 @import "./input.css";
 @import "./select.css";
+@import "./overlay.css";
+@import "./thank-you.css";
 
 :root {
     --background: white;
@@ -15,4 +17,11 @@
 input:focus {
     outline:none;
 }
-
+.container {
+    position: relative;
+}
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
