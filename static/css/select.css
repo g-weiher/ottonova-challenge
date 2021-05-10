@@ -12,13 +12,20 @@
     height: 2.5rem;
 }
 .select-content {
-    border: 1px solid var(--grey);
+    border: var(--border);
     border-radius: 0.5rem;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 1px 3px rgba(10, 10, 10, 0.3);
+    cursor: pointer;
+}
+.select-content:hover {
+    border-color: var(--primary);
+}
+.select-content:active {
+    transform: translateY(1px);
 }
 input:checked + .select-content {
     border: 2px solid var(--primary);

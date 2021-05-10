@@ -65,19 +65,21 @@ const populateTimes = (index, skipAnimation = false) => {
         window.requestAnimationFrame(tryToggleLoading);
     }
 };
-
 const onSubmit = () => {
-    loadingOverlay.classList.remove("hidden");
-    setTimeout(() => {
+    console.log("click");
+    form.classList.add("was-validated");
+    const valid = validate();
+    if(valid) loadingOverlay.classList.remove("hidden");
+    /*setTimeout(() => {
         window.location.href = 'thankyou.html';
         loadingOverlay.classList.add("hidden");
-    },1000)
+    },1000)*/
 
     
 }
 form.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    onSubmit();
+    return onSubmit();
 })
 const onTimeSelect = (dateSring) => {
     const date = new Date(dateSring);
@@ -91,7 +93,14 @@ dateSelect.addEventListener("change", (ev) => {
 timeSelect.addEventListener("change", (ev) => {
     onTimeSelect(ev.target.value);
 });
+const validate = () => {
+    const validationForm = document.forms["appointment-form"];
+    const firstName = validationForm["fname"];
+    if(firstName.value === "") firstName.classList.add(".invalid");
+    console.log(validationForm["fname"].value);
+    return false;
 
+}
 populateDates();
 populateTimes(0,true);
 onTimeSelect(appointments[0].appointments[0].value);

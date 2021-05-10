@@ -3,9 +3,6 @@
     opacity: 0;
     
 }
-form {
-    transition: opacity 0.3s;
-}
 .loading-overlay {
     position: absolute;
     z-index: 1;

@@ -24,6 +24,10 @@ form {
     cursor: unset;
     grid-area: date;
 }
+.date:hover {
+    cursor: unset;
+    grid-area: date;
+}
 
 .appointment-selection {
     display: grid;

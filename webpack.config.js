@@ -1,6 +1,8 @@
+const CopyPlugin = require("copy-webpack-plugin");
+
 module.exports = {
     entry: "./src/js/app.js",
-    mode: "development",
+    mode: "production",
     output: {
         path: `${__dirname}/dist`,
         filename: "bundle.js",
@@ -17,6 +19,20 @@ module.exports = {
                     },
                 },
             },
+            /*{
+                test: /\.css$/,
+                use: [
+                  'style-loader',
+                  'css-loader',
+                ],
+              },*/
         ],
     },
+    plugins: [
+        new CopyPlugin({
+          patterns: [
+            { from: "static", to: "./" },
+          ],
+        }),
+      ],
 };
