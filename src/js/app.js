@@ -1,10 +1,10 @@
 import appointments from "./appointments.js";
 
-const form = document.getElementById("contact-form"); 
+const form = document.getElementById("appointment-form"); 
 const dateSelect = document.getElementById("date-selection");
-const timeContainer = document.getElementById("time-selection");
+const timeSelect = document.getElementById("time-selection");
 const loadingOverlay = document.getElementById("loading-overlay");
-const dateInput = document.getElementById("date");
+const dateLabel = document.getElementById("date-label");
 
 const createRadioButton = (name, value, text, checked = false) => {
     // create wrapping label
@@ -39,7 +39,7 @@ const populateDates = () => {
 };
 const populateTimes = (index, skipAnimation = false) => {
     // toggle opacity class for fade-in effect
-    if (!skipAnimation) timeContainer.classList.toggle("loading");
+    if (!skipAnimation) timeSelect.classList.toggle("loading");
     const options = new DocumentFragment();
     appointments[index].appointments.forEach((appointmentTime, index) => {
         const radioButton = createRadioButton(
@@ -48,18 +48,18 @@ const populateTimes = (index, skipAnimation = false) => {
             appointmentTime.label,
             index === 0 ? true : false
         );
-        timeContainer.innerHTML = "";
+        timeSelect.innerHTML = "";
         options.append(radioButton);
     });
-    timeContainer.append(options);
+    timeSelect.append(options);
 
     if (!skipAnimation) {
         //make sure previous changes were rendered before toggling animation class
         const tryToggleLoading = () => {
-            if (window.getComputedStyle(timeContainer).opacity === "1") {
+            if (window.getComputedStyle(timeSelect).opacity === "1") {
                 window.requestAnimationFrame(tryToggleLoading);
             } else {
-                timeContainer.classList.toggle("loading");
+                timeSelect.classList.toggle("loading");
             }
         };
         window.requestAnimationFrame(tryToggleLoading);
@@ -79,11 +79,19 @@ form.addEventListener("submit", (ev) => {
     ev.preventDefault();
     onSubmit();
 })
+const onTimeSelect = (dateSring) => {
+    const date = new Date(dateSring);
+    dateLabel.innerText = `Your appointment is at ${date.toLocaleString()}`;
+};
 
-
-dateSelect.addEventListener("change", (ev) => populateTimes(ev.target.value));
-timeContainer.addEventListener("change", (ev) => {
-    dateInput.value = ev.target.value;
+dateSelect.addEventListener("change", (ev) => {
+    populateTimes(ev.target.value);
+    onTimeSelect(appointments[ev.target.value].appointments[0].value);
 });
+timeSelect.addEventListener("change", (ev) => {
+    onTimeSelect(ev.target.value);
+});
+
 populateDates();
 populateTimes(0,true);
+onTimeSelect(appointments[0].appointments[0].value);

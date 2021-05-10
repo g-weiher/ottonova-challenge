@@ -28,21 +28,10 @@ input[type=checkbox] {
     margin-left: 1rem;
     transition: 0.1s ease-in;
 }
-input[type=checkbox]:checked + span  {
-    border-color: var(--primary);
-    border-width: 2px;
-}
 input[type=checkbox]:checked + span  .checkbox-icon  {
     border:solid var(--primary) 5px;
 }
-.contact-form {
-    max-width: 800px;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "date date" "first-name last-name" "e-mail e-mail" "permission permission";
-    grid-gap: 0.5rem;
-}
+
 .first-name {
     grid-area: first-name;
 }

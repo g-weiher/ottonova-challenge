@@ -1,0 +1,41 @@
+form {
+    max-width: 900px;
+}
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "date date" "first-name last-name" "e-mail e-mail" "permission permission";
+    grid-gap: 0.5rem;
+}
+.first-name {
+    grid-area: first-name;
+}
+.last-name {
+    grid-area: last-name;
+}
+.e-mail {
+    grid-area: e-mail;
+}
+.permission {
+    grid-area: permission;
+}
+.date {
+    cursor: unset;
+    grid-area: date;
+}
+
+.appointment-selection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+#date-selection {
+    grid-area: dateSelect;
+}
+#time-selection {
+    grid-area: timeSelect;
+}
+.input.date {
+    grid-area: date;
+}

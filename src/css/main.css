@@ -4,6 +4,8 @@
 @import "./overlay.css";
 @import "./thank-you.css";
 @import "./button.css";
+@import "./layout.css";
+@import "./date-selection.css";
 
 :root {
     --background: white;
@@ -26,4 +28,7 @@ input:focus {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+hr {
+    margin: 1.5rem 0;
 }
