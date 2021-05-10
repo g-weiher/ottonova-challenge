@@ -1,0 +1,21 @@
+header {
+    --topbar-height: 64px;
+    
+}
+.topbar-wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: var(--background);
+    z-index: 10;
+}
+.topbar {
+    padding-top: 0.5rem;
+    height: var(--topbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.topbar-placeholder {
+    height: var(--topbar-height);
+    margin-bottom: 2rem;
+}
