@@ -4,6 +4,7 @@ const form = document.getElementById("contact-form");
 const dateSelect = document.getElementById("date-selection");
 const timeContainer = document.getElementById("time-selection");
 const loadingOverlay = document.getElementById("loading-overlay");
+const dateInput = document.getElementById("date");
 
 const createRadioButton = (name, value, text, checked = false) => {
     // create wrapping label
@@ -69,6 +70,7 @@ const onSubmit = () => {
     loadingOverlay.classList.remove("hidden");
     setTimeout(() => {
         window.location.href = 'thankyou.html';
+        loadingOverlay.classList.add("hidden");
     },1000)
 
     
@@ -80,5 +82,8 @@ form.addEventListener("submit", (ev) => {
 
 
 dateSelect.addEventListener("change", (ev) => populateTimes(ev.target.value));
+timeContainer.addEventListener("change", (ev) => {
+    dateInput.value = ev.target.value;
+});
 populateDates();
 populateTimes(0,true);

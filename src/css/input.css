@@ -40,7 +40,7 @@ input[type=checkbox]:checked + span  .checkbox-icon  {
     margin-right: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "first-name last-name" "e-mail e-mail" "permission permission";
+    grid-template-areas: "date date" "first-name last-name" "e-mail e-mail" "permission permission";
     grid-gap: 0.5rem;
 }
 .first-name {
@@ -54,4 +54,11 @@ input[type=checkbox]:checked + span  .checkbox-icon  {
 }
 .permission {
     grid-area: permission;
+}
+.date {
+    cursor: unset;
+    grid-area: date;
+}
+.date:hover {
+    border:solid var(--grey) 1px;
 }
