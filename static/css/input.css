@@ -3,7 +3,7 @@
     border-radius: 0.5rem;
     border: 1px solid var(--grey);
 }
-.was-validated .invalid {
+.was-validated .invalid, input[type=checkbox].invalid + .checkbox-content{
     border: 1px solid red;
 }
 .checkbox-content {
@@ -26,6 +26,9 @@
     border:solid var(--grey) 1px;
     margin-left: 1rem;
     transition: 0.1s ease-in;
+}
+input[type=checkbox]:checked + span  .checkbox-icon  {
+    border:solid var(--primary) 5px;
 }
 input[type=checkbox]:checked + span  .checkbox-icon  {
     border:solid var(--primary) 5px;

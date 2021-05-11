@@ -1,4 +1,5 @@
 import appointments from "./appointments.js";
+import validate from "./validation.js";
 
 const form = document.getElementById("appointment-form"); 
 const dateSelect = document.getElementById("date-selection");
@@ -69,11 +70,14 @@ const onSubmit = () => {
     console.log("click");
     form.classList.add("was-validated");
     const valid = validate();
-    if(valid) loadingOverlay.classList.remove("hidden");
-    /*setTimeout(() => {
-        window.location.href = 'thankyou.html';
-        loadingOverlay.classList.add("hidden");
-    },1000)*/
+    if(valid) {
+        loadingOverlay.classList.remove("hidden");
+        setTimeout(() => {
+            window.location.href = 'thankyou.html';
+            loadingOverlay.classList.add("hidden");
+        },1000);
+    }
+    return true;
 
     
 }
@@ -93,14 +97,6 @@ dateSelect.addEventListener("change", (ev) => {
 timeSelect.addEventListener("change", (ev) => {
     onTimeSelect(ev.target.value);
 });
-const validate = () => {
-    const validationForm = document.forms["appointment-form"];
-    const firstName = validationForm["fname"];
-    if(firstName.value === "") firstName.classList.add(".invalid");
-    console.log(validationForm["fname"].value);
-    return false;
-
-}
 populateDates();
 populateTimes(0,true);
 onTimeSelect(appointments[0].appointments[0].value);

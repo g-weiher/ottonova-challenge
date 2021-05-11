@@ -1,5 +1,6 @@
 form {
     max-width: 900px;
+    margin: 0 auto;
 }
 
 .contact {
@@ -33,6 +34,7 @@ form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    margin-top: 2rem;
 }
 #date-selection {
     grid-area: dateSelect;
@@ -42,4 +44,11 @@ form {
 }
 .input.date {
     grid-area: date;
+}
+.hero {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 2rem;
 }
