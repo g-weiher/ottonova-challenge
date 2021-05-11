@@ -1,3 +1,6 @@
+@import "./main.css";
+@import "./topbar.css";
+
 .fade-in {
     animation: fade 1s;
 }

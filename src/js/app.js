@@ -1,5 +1,6 @@
-import appointments from "./appointments.js";
+import appointments from "./appointmentData.js";
 import validate from "./validation.js";
+import {formatDate, createRadioButton}from "./util"
 
 const form = document.getElementById("appointment-form"); 
 const dateSelect = document.getElementById("date-selection");
@@ -7,24 +8,6 @@ const timeSelect = document.getElementById("time-selection");
 const loadingOverlay = document.getElementById("loading-overlay");
 const dateLabel = document.getElementById("date-label");
 
-const createRadioButton = (name, value, text, checked = false) => {
-    // create wrapping label
-    const label = document.createElement("label");
-    label.className = "select-option";
-    //create radio input
-    const input = document.createElement("input");
-    input.type = "radio";
-    input.name = name;
-    input.value = value;
-    if (checked) input.checked = "checked";
-    //create visual content
-    const content = document.createElement("div");
-    content.className = "select-content";
-    content.innerText = text;
-    //append notes
-    label.append(input, content);
-    return label;
-};
 const populateDates = () => {
     var options = new DocumentFragment();
     appointments.forEach((appointmentDay, index) => {
@@ -86,8 +69,7 @@ form.addEventListener("submit", (ev) => {
     return onSubmit();
 })
 const onTimeSelect = (dateSring) => {
-    const date = new Date(dateSring);
-    dateLabel.innerText = `Your appointment is at ${date.toLocaleString()}`;
+    dateLabel.innerText = formatDate(dateSring);
 };
 
 dateSelect.addEventListener("change", (ev) => {

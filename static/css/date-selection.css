@@ -1,6 +1,71 @@
-.date-label {
+/* --- wrapper layout --- */
+
+.appointment-selection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* --- radio button layout --- */
+
+.selection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0.5rem 0;
+    gap: 0.8rem 0.5rem;
+}
+
+/* --- individual radio button styling --*/
+
+.selection > .select-option {
+    height: 2.5rem;
+}
+.select-content {
+    border: var(--border);
+    border-radius: 0.5rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1px 3px rgba(10, 10, 10, 0.3);
+    cursor: pointer;
+}
+.select-content:hover {
+    border-color: var(--primary);
+}
+.select-content:active {
+    transform: translateY(1px);
+}
+input:checked + .select-content {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+/* --- transition when changing the date --- */
+
+.selection:not(.loading) {
+    opacity: 1;
+    transition: 0.3s;
+}
+.loading {
+    opacity: 0;
+}
+
+/* --- date field styling --- */
+
+.date {
     font-weight: 600;
 }
-.date-label:hover {
+.date:hover {
     border: 1px solid var(--grey);
 }
+.date {
+    cursor: unset;
+}
+
+.date:hover {
+    border:solid var(--grey) 1px;
+}
+
+

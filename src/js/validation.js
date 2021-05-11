@@ -19,6 +19,7 @@ const validateChecked = (checkboxInput) => {
 const validate = () => {
     const validationForm = document.forms["appointment-form"];
     return (
+        validateNotEmpty(validationForm["gender"]) &
         validateNotEmpty(validationForm["fname"]) &
         validateNotEmpty(validationForm["lname"]) &
         validateNotEmpty(validationForm["email"]) &

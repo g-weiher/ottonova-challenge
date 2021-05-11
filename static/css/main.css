@@ -1,39 +1,24 @@
-@import "./topbar.css";
-@import "./input.css";
-@import "./select.css";
-@import "./overlay.css";
-@import "./thank-you.css";
-@import "./button.css";
-@import "./layout.css";
-@import "./date-selection.css";
-
 :root {
     --background: white;
-    --primary: #0077FF;
-    --secondary: #00104B;
-    --grey: #A3A8BA;
+    --primary: #0077ff;
+    --secondary: #00104b;
+    --grey: #a3a8ba;
     --shadow: 0px 1px 3px rgba(10, 10, 10, 0.3);
     --border: 1px solid var(--grey);
     --border-active: 2px solid var(--primary);
-}
-* {
-    box-sizing: border-box
-}
-input:focus {
-    outline:none;
-}
-input[type=radio],
-input[type=checkbox] {
-    display: none;
-}
-.container {
-    position: relative;
 }
 .center-content {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-hr {
-    margin: 1.5rem 0;
+h4 {
+    margin-bottom: 1rem;
+}
+footer {
+    background-color: var(--grey);
+    height: 300px;
+}
+main {
+    margin-bottom: 3rem;
 }

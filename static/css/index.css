@@ -1,0 +1,56 @@
+@import "./main.css";
+@import "./topbar.css";
+@import "./input.css";
+@import "./overlay.css";
+@import "./button.css";
+@import "./date-selection.css";
+
+.hero {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 2rem;
+}
+
+form {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-areas: "date date date" "gender first-name last-name" "permission e-mail e-mail";
+    gap: 0.8rem 0.5rem;
+}
+.gender {
+    grid-area: gender;
+}
+.first-name {
+    grid-area: first-name;
+}
+.last-name {
+    grid-area: last-name;
+}
+.e-mail {
+    grid-area: e-mail;
+}
+.permission {
+    grid-area: permission;
+}
+.date {
+    grid-area: date;
+}
+.date:hover {
+    cursor: unset;
+    grid-area: date;
+}
+
+
+.heading {
+    margin: 1rem 0 3rem 0;
+}
+.heading > p {
+    font-size: 1.2rem;
+}
