@@ -47,10 +47,3 @@ form {
     grid-area: date;
 }
 
-
-.heading {
-    margin: 1rem 0 3rem 0;
-}
-.heading > p {
-    font-size: 1.2rem;
-}

@@ -9,8 +9,13 @@
 }
 .center-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+a {
+    text-decoration: none;
+    color: inherit;
 }
 h4 {
     margin-bottom: 1rem;
@@ -21,4 +26,11 @@ footer {
 }
 main {
     margin-bottom: 3rem;
+    min-height: 100vh;
+}
+.heading {
+    margin: 1rem 0 3rem 0;
+}
+.heading > p {
+    font-size: 1.2rem;
 }
