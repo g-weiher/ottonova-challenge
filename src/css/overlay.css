@@ -3,19 +3,29 @@
     opacity: 0;
     
 }
-form {
-    transition: opacity 0.3s;
-}
 .loading-overlay {
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top:0;
     left:0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(200, 200, 200, 0.7);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
     transition: opacity 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+}
+.loading-overlay img {
+    width: 160px;
+    height: 160px;
+    animation: rotation 2s infinite linear;
 }

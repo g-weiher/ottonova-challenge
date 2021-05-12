@@ -1,6 +1,5 @@
 header {
-    --topbar-height: 64px;
-    
+    --topbar-height: 64px; 
 }
 .topbar-wrapper {
     position: fixed;
@@ -9,13 +8,53 @@ header {
     z-index: 10;
 }
 .topbar {
-    padding-top: 0.5rem;
     height: var(--topbar-height);
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    
+}
+.topbar nav {
+    color: var(--secondary);
+    font-weight: 600;
+
+}
+.topbar a {
+    margin-left: 2rem;
 }
 .topbar-placeholder {
     height: var(--topbar-height);
     margin-bottom: 2rem;
+}
+.menu {
+    display: none;
+}
+.menu-icon {
+    width: 64px;
+    height: 64px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu-icon div {
+    border-top: 2px solid var(--secondary);
+    height: 1px;
+}
+.menu-icon:hover {
+    background-color: var(--light-grey);
+}
+.menu-icon:active {
+    padding: 26px 24px;
+}
+
+/* --- responsive --- */
+@media only screen and (max-width:768px) {
+    .navigation {
+        display: none;
+    }
+    .menu {
+        display: block;
+    }
 }

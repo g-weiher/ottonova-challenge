@@ -1,12 +1,28 @@
+
+/* --- general input styling --- */
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+.input:focus {
+    outline: none;
+}
 .input {
     padding: 0.5rem 0.8rem;
     border-radius: 0.5rem;
     border: 1px solid var(--grey);
 }
-input[type=radio],
-input[type=checkbox] {
-    display: none;
+.input:focus {
+    border:1px solid var(--primary);
+    outline: none;
 }
+.checkbox-content:hover, .input:hover {
+    border-color:var(--primary);
+}
+
+/* --- checkbox styling --- */
+
 .checkbox-content {
     display: flex;
     align-items: center;
@@ -14,12 +30,8 @@ input[type=checkbox] {
     padding: 0.5rem 0.8rem;
     border-radius: 0.5rem;
     border: 1px solid var(--grey);
-    transition: 0.1s ease-in;
     cursor: pointer;
     
-}
-.checkbox-content:hover, .input:hover {
-    border-color:var(--primary);
 }
 .checkbox-icon {
     width: 20px;
@@ -28,30 +40,33 @@ input[type=checkbox] {
     margin-left: 1rem;
     transition: 0.1s ease-in;
 }
-input[type=checkbox]:checked + span  {
-    border-color: var(--primary);
-    border-width: 2px;
+.checkbox-icon > div {
+    border-bottom: 3px solid var(--primary);
+    border-left: 3px solid var(--primary);
+    width: 120%;
+    height: 60%;
+    transform: translate(-10%, -20%) rotate(-45deg);
+    opacity: 0;
+    transition: opacity 0.1s;
 }
-input[type=checkbox]:checked + span  .checkbox-icon  {
-    border:solid var(--primary) 5px;
+input[type=checkbox]:checked + span  .checkbox-icon > div {
+    opacity: 1;
 }
-.contact-form {
-    max-width: 800px;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "first-name last-name" "e-mail e-mail" "permission permission";
-    grid-gap: 0.5rem;
+
+/* -- styling for invalid form controls --- */
+
+.was-validated .invalid, input[type=checkbox].invalid + span{
+    border: 1px solid red;
 }
-.first-name {
-    grid-area: first-name;
-}
-.last-name {
-    grid-area: last-name;
-}
-.e-mail {
-    grid-area: e-mail;
-}
-.permission {
-    grid-area: permission;
+
+/* --- styling of select inputs --- */
+
+select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 16px 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }

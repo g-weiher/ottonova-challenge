@@ -9,6 +9,17 @@
         opacity: 1;
     }
 }
-.thank-you-panel {
-    height: 40vh;
+.thank-you .hero {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+    object-position: top;
+    margin-bottom: 2rem;
+}
+.thank-you .heading {
+    max-width: 900px;
+    margin: auto;
+}
+.thank-you .heading .button {
+    margin-top: 2rem;
 }
