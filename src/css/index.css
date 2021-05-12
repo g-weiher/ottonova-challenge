@@ -1,0 +1,49 @@
+.hero {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 2rem;
+}
+
+form {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 2fr;
+    grid-template-areas: "date date date" "gender first-name last-name" "permission e-mail e-mail";
+    gap: 0.8rem 0.5rem;
+}
+.gender {
+    grid-area: gender;
+}
+.first-name {
+    grid-area: first-name;
+}
+.last-name {
+    grid-area: last-name;
+}
+.e-mail {
+    grid-area: e-mail;
+}
+.permission {
+    grid-area: permission;
+}
+.date {
+    grid-area: date;
+}
+.date:hover {
+    cursor: unset;
+    grid-area: date;
+}
+
+/* --- responsive --- */
+@media only screen and (max-width:768px) {
+    .contact {
+        grid-template-columns: 100%;
+        grid-template-areas: "date" "gender" "first-name" "last-name" "e-mail" "permission";
+    }
+}

@@ -1,11 +1,14 @@
 {
+  "homepage": "http://g-weiher.github.io/ottonova-challenge",
   "name": "ottonova-challenge",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "georg weiher",
   "license": "ISC",
@@ -13,7 +16,13 @@
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
     "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^8.1.1",
+    "css-loader": "^5.2.4",
+    "gh-pages": "^3.1.0",
+    "mini-css-extract-plugin": "^1.6.0",
+    "style-loader": "^2.0.0",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0"
-  }
+  },
+  "dependencies": {}
 }
