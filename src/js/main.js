@@ -1,8 +1,8 @@
 import appointments from "./appointmentData.js";
 import validate from "./validation.js";
-import {formatDate, createRadioButton}from "./util"
+import { formatDate, createRadioButton } from "./util";
 
-const form = document.getElementById("appointment-form"); 
+const form = document.getElementById("appointment-form");
 const dateSelect = document.getElementById("date-selection");
 const timeSelect = document.getElementById("time-selection");
 const loadingOverlay = document.getElementById("loading-overlay");
@@ -53,21 +53,19 @@ const onSubmit = () => {
     console.log("click");
     form.classList.add("was-validated");
     const valid = validate();
-    if(valid) {
+    if (valid) {
         loadingOverlay.classList.remove("hidden");
         setTimeout(() => {
-            window.location.href = 'thankyou.html';
+            window.location.href = "thankyou.html";
             loadingOverlay.classList.add("hidden");
-        },1000);
+        }, 1000);
     }
     return true;
-
-    
-}
+};
 form.addEventListener("submit", (ev) => {
     ev.preventDefault();
     return onSubmit();
-})
+});
 const onTimeSelect = (dateSring) => {
     dateLabel.innerText = formatDate(dateSring);
 };
@@ -80,5 +78,5 @@ timeSelect.addEventListener("change", (ev) => {
     onTimeSelect(ev.target.value);
 });
 populateDates();
-populateTimes(0,true);
+populateTimes(0, true);
 onTimeSelect(appointments[0].appointments[0].value);

@@ -1,6 +1,23 @@
+const DAYS = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+];
+const toTwoDidget = (number) => {
+    if (number < 10) return `0${number}`;
+    return number;
+};
 export const formatDate = (dateSring) => {
     const date = new Date(dateSring);
-    return `Your appointment is at ${date.toLocaleString()}`;
+    return `Your appointment is on ${
+        DAYS[date.getDay()]
+    }, ${date.toLocaleDateString()} - ${toTwoDidget(
+        date.getHours()
+    )}:${toTwoDidget(date.getMinutes())}`;
 };
 export const createRadioButton = (name, value, text, checked = false) => {
     // create wrapping label

@@ -1,8 +1,17 @@
+@import "./topbar.css";
+@import "./input.css";
+@import "./overlay.css";
+@import "./button.css";
+@import "./date-selection.css";
+@import "./thank-you.css";
+@import "./index.css";
+
 :root {
     --background: white;
     --primary: #0077ff;
     --secondary: #00104b;
     --grey: #a3a8ba;
+    --light-grey: #d5d8e2;
     --shadow: 0px 1px 3px rgba(10, 10, 10, 0.3);
     --border: 1px solid var(--grey);
     --border-active: 2px solid var(--primary);
@@ -16,6 +25,10 @@
 a {
     text-decoration: none;
     color: inherit;
+    padding:1rem;
+}
+a:hover {
+    color: var(--primary);
 }
 h4 {
     margin-bottom: 1rem;
@@ -34,3 +47,4 @@ main {
 .heading > p {
     font-size: 1.2rem;
 }
+
